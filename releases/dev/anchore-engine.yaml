@@ -1,0 +1,15 @@
+---
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: anchore-engine-dev
+  namespace: dev
+  annotations:
+    flux.weave.works/automated: "true"
+    flux.weave.works/tag.chart-image: glob:dev-*
+spec:
+  releaseName: podinfo-dev
+  chart:
+    git: git@github.com:helm/charts
+    path: stable/anchore-engine
+    ref: master
